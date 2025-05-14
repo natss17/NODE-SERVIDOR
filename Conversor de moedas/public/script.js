@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const moeda = moedaOrigem.value
         const destino = moedaDestino.value
 
-        if (!valor || valor <= 0) {
+        if(!valor || valor <= 0) {
             alert("Insira um valor válido")
             return
         }
@@ -23,9 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const resposta = await fetch(`/converter?valor=${valor}&de=${moeda}&para=${destino}`)
             const dados = await resposta.json()
 
-            // if(dados.erro){
-            //     throw new Error(dados.detalhes || dados.erro)
-            // }
+            //if(dados.erro){
+                //throw new Error(dados.detalhes || dados.erro)
+            //}
 
             // Está escrito INTL
             const valorFormatado = new Intl.NumberFormat('pt-BR', {
@@ -34,10 +34,10 @@ document.addEventListener("DOMContentLoaded", () => {
             }).format(dados.valorConvertido)
 
             valorConvertido.textContent = valorFormatado
-        } catch (erro) {
+        } catch(erro) {
             console.error("Erro completo:", erro)
-            alert("Erro para converter " + erro.message)
-            valorConvertido.textContent = "Erro na conversão"
+            alert("Erro para converter" + erro.message)
+            valorConvertido.textContent = valorFormatado
         } finally {
             converter.disable = false
             converter.textContent = "Converter"
