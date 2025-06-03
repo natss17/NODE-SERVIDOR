@@ -1,4 +1,4 @@
-require('dotenv').config()
+equire('dotenv').config()
 
 if(!process.env.ID || !process.env.SECRET) {
     console.error("ERRO: As credenciais nao estao configuradas")
@@ -78,4 +78,4 @@ passport.deserializeUser((user, done) => {
     done(null, user)
 })
 
-app.use(express.static("public
+app.use(express.static("public"))
